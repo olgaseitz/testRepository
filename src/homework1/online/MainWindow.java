@@ -10,6 +10,7 @@ public class MainWindow extends JFrame {
 
     private Settings settings;
     private GameMap gameMap;
+    private Credits credits;
 
     MainWindow(){
         setTitle("Игра <Крестики-Нолики> "); // название окна
@@ -19,10 +20,15 @@ public class MainWindow extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // функция закрытия окна
         settings = new Settings(this);
         gameMap = new GameMap();
+        credits = new Credits(this);
 
         JButton btnStartGame = new JButton("Start new Game");// создаем кнопки
         btnStartGame.setBackground(new Color(205, 133, 63));
         btnStartGame.addActionListener(e -> settings.setVisible(true));
+
+        JButton btnCredits = new JButton("About");
+        btnCredits.setBackground(new Color(205, 133, 63));
+        btnCredits.addActionListener(e -> credits.setVisible(true));
 
         JButton btnExitGame = new JButton("Exit Game");
         btnExitGame.setBackground(new Color(205, 133, 63));
@@ -30,12 +36,12 @@ public class MainWindow extends JFrame {
         btnExitGame.addActionListener(e -> System.exit(0));
 
         JPanel panelForButton = new JPanel(new GridLayout(2, 1)); // создание панели
-       // panelForButton.setLayout(new GridLayout(2, 1));
         panelForButton.add(btnStartGame);
+        panelForButton.add(btnCredits);
         panelForButton.add(btnExitGame);
 
         add(panelForButton, BorderLayout.NORTH);
-        add(gameMap, BorderLayout.SOUTH);
+        add(gameMap, BorderLayout.CENTER);
 
 
         setVisible(true); // сделать окно видимым

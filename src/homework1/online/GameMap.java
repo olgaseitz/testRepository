@@ -6,7 +6,7 @@ public class GameMap extends JPanel {
     public static final int GM_HVH = 0; //задаем 2 типа игр
     public static final int GM_HVA = 1;
 
-    
+
     GameMap(){
         setBackground(new Color(255, 235,205));
     }
